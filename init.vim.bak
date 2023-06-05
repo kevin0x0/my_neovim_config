@@ -1,0 +1,21 @@
+set number          "line number
+set rnu
+set nowrap          "
+set showmatch
+
+set expandtab
+set tabstop=4       "tab witdh
+
+set autoindent
+set shiftwidth=4
+
+set showcmd
+
+set termguicolors   "enable true color
+
+hi Normal guibg=#1B1D1E
+hi LineNr term=bold cterm=bold ctermfg=White ctermbg=Black guifg=bold guibg=#232526
+
+set cursorline
+hi CursorLine term=bold cterm=bold ctermbg=Black guifg=bold guibg=#303030
+hi CursorLineNr term=bold cterm=bold ctermfg=White ctermbg=Black guifg=bold guibg=#303030
