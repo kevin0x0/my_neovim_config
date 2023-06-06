@@ -4,9 +4,8 @@
 vim.opt.showmode = false
 
 
-
-local function my_date()
-    return os.date('%Y-%m-%d %H:%M:%S')
+local function fmt_date()
+    return os.date('%Y-%m-%d %H:%M:%S');
 end
 
 local comp_sep_none = { left = '', right = '' }
@@ -50,7 +49,10 @@ require("lualine").setup({
     },
     sections = {
         lualine_a = {
+            {
                 'mode'
+                -- fmt = function(str) return string.format('%-8s', str):sub(1, 8) end
+            }
         },
         lualine_b = {
             {
@@ -73,7 +75,7 @@ require("lualine").setup({
         },
         lualine_c = { { "require'lsp-status'.status()" }, { 'filename', colored = true, color = { fg = '#d0d0d0' } } },
         lualine_y = { 'filesize', 'progress', 'location' },-- { 'filesize', { row_col_prog } },
-        lualine_z = { my_date }
+        lualine_z = { fmt_date }
     }
 })
 

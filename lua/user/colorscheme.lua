@@ -20,3 +20,6 @@ vim.api.nvim_command("hi CursorLineNr term=bold cterm=bold ctermfg=White ctermbg
 local theme = "onedark"
 vim.api.nvim_command("colorscheme " .. theme)
 
+
+
+

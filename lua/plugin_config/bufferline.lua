@@ -23,3 +23,8 @@ require("bufferline").setup({
 })
 
 
+-- key mapping for bufferline
+vim.keymap.set('n', '<a-]>', ':BufferLineCycleNext<CR>', opt)
+vim.keymap.set('n', '<a-[>', ':BufferLineCyclePrev<CR>', opt)
+vim.keymap.set('n', '<a-<Tab>>', ':BufferLineCycleNext<CR>', opt)
+

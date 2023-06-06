@@ -66,3 +66,9 @@ end
 require("nvim-tree").setup({
     on_attach = my_on_attach
 })
+
+
+-- mapping for nvim-tree
+vim.keymap.set('n', '<a-e>', ':NvimTreeToggle<CR>', opt)
+vim.keymap.set('n', '<a-f>', ':NvimTreeFocus<CR>', opt)
+

@@ -8,6 +8,7 @@ vim.g.loaded_netrwPlugin = 1
 
 require("user.options")
 require("user.plugins")
+require("user.keymaps")
 
 
 -- ensure all the packs are installed and be upgraded
@@ -23,11 +24,13 @@ require("plugin_config.lualine")
 require("plugin_config.telescope")
 require("plugin_config.tokyonight")
 
-
-
-
 require("user.colorscheme")
-require("user.keymaps")
+
+
+-- lsp
+require("lsp.setup")
+
+
 
 
 

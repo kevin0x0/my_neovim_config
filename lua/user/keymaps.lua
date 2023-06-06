@@ -38,14 +38,6 @@ vim.keymap.set('n', '<Leader>w', ':w<CR>', opt)
 vim.keymap.set('n', '<Leader>q', ':q<CR>', opt)
 
 
--- mapping for bufferline
-vim.keymap.set('n', '<a-]>', ':BufferLineCycleNext<CR>', opt)
-vim.keymap.set('n', '<a-[>', ':BufferLineCyclePrev<CR>', opt)
-vim.keymap.set('n', '<a-<Tab>>', ':BufferLineCycleNext<CR>', opt)
-
--- mapping for nvim-tree
-vim.keymap.set('n', '<a-e>', ':NvimTreeToggle<CR>', opt)
-vim.keymap.set('n', '<a-f>', ':NvimTreeFocus<CR>', opt)
 
 
 
