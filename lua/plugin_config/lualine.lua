@@ -2,29 +2,49 @@
 
 
 vim.opt.showmode = false
-local enable_global_status = true
+
+
 
 local function my_date()
     return os.date('%Y-%m-%d %H:%M:%S')
 end
 
-local function my_day_of_week()
-    local days = { 'Sun.', 'Mon.', 'Tues.', 'Wed.', 'Thur.', 'Fri.', 'Sat.' }
-    return days[os.date('%w') + 1]
-end
+local comp_sep_none = { left = '', right = '' }
+local comp_sep_tri = { left = '', right = '' }
+local comp_sep_cir = { left = '', right = '' }
+local comp_sep_tri_cir = { left = '', right = '' }
+local comp_sep_cir_tri = { left = '', right = '' }
 
--- constomize theme
-local custom_horizon = require'lualine.themes.horizon'
 
-custom_horizon.visual.a.bg = '#c893eb'
-custom_horizon.replace.a.bg = '#f1fa8d'
+
+local sect_sep_none = { left = '', right = '' }
+local sect_sep_tri = { left = '', right = '' } 
+local sect_sep_cir = { left = '', right = '' } 
+local sect_sep_sla = { left = '', right = '' }
+local sect_sep_tri_cir = { left = '', right = '' } 
+local sect_sep_cir_tri = { left = '', right = '' } 
+local sect_sep_tri_sla = { left = '', right = '' }  
+local sect_sep_sla_tri = { left = '', right = '' }  
+
+
+
+-- specify theme here
+
+local comp_sep = comp_sep_none
+local sect_sep = sect_sep_tri_sla
+local my_theme = require("plugin_config.lualine_theme.gradient_deep")
+
+-- theme specification end
+
+local enable_global_status = true
+
 
 require("lualine").setup({
     options = {
         icons_enabled = true, 
-        theme = custom_horizon,
-        section_separators = { left = '', right = '' },
-        component_separators = { left = '', right = '' },
+        theme = my_theme,
+        section_separators = sect_sep,
+        component_separators = comp_sep,
         globalstatus = enable_global_status,
         always_divided_middle = false
     },
@@ -36,7 +56,6 @@ require("lualine").setup({
             {
                 'branch',
                 colored = true,
-                color = { fg ='#00d91a' },
                 icons_enabled = true,
                 icon = { '', aligh = 'left', color = { fg = 'yellow' } }
             },
@@ -53,7 +72,7 @@ require("lualine").setup({
             }
         },
         lualine_c = { { "require'lsp-status'.status()" }, { 'filename', colored = true, color = { fg = '#d0d0d0' } } },
-        lualine_y = { 'filesize', 'progress', 'location' },
+        lualine_y = { 'filesize', 'progress', 'location' },-- { 'filesize', { row_col_prog } },
         lualine_z = { my_date }
     }
 })
