@@ -7,7 +7,7 @@ local opt = { noremap = true, silent = true }
 
 
 vim.keymap.set('i', 'jk', '<Esc>', { noremap = true })
-vim.keymap.set('t', '<Esc>', [[<c-\><c-n>]], { noremap = true })
+-- vim.keymap.set('t', '<Esc>', [[<c-\><c-n>]], { noremap = true })
 
 
 
