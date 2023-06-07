@@ -69,6 +69,7 @@ require("nvim-tree").setup({
 
 
 -- mapping for nvim-tree
+local opt = { noremap = true, silent = true }
 vim.keymap.set('n', '<a-e>', ':NvimTreeToggle<CR>', opt)
 vim.keymap.set('n', '<a-f>', ':NvimTreeFocus<CR>', opt)
 
