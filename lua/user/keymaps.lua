@@ -29,13 +29,9 @@ vim.keymap.set('n', '<a-S-j>', '<C-w>J', opt)
 vim.keymap.set('n', '<a-S-k>', '<C-w>K', opt)
 vim.keymap.set('n', '<a-S-l>', '<C-w>L', opt)
 
--- <Leader>
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
 -- fast oparation
-vim.keymap.set('n', '<Leader>w', ':w<CR>', opt)
-vim.keymap.set('n', '<Leader>q', ':q<CR>', opt)
+vim.keymap.set('n', '<a-w>', ':w<CR>', opt)
+vim.keymap.set('n', '<a-q>', ':q<CR>', opt)
 
 
 

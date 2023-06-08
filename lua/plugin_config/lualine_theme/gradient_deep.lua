@@ -1,5 +1,4 @@
 -- gradient.lua
--- seems bad
 
 
 local colors = {
@@ -13,7 +12,7 @@ local colors = {
   cyan         = '#34BFB3',
 
   gray         = '#F43E5C',
-  darkgray     = '#303030',--'#1A1C23',
+  darkgray     = '#303030', --'#1A1C23',
   lightgray    = '#6E505E',
   highlightgray= '#7C6F93',
   inactivegray = '#1C1E26',
@@ -87,9 +86,17 @@ return {
     z = { bg = ctrans(colors.cyan, colors.dest, 5), fg = colors.white }
   },
   inactive = {
-    a = { bg = colors.inactivegray, fg = colors.lightgray, gui = 'bold' },
-    b = { bg = colors.inactivegray, fg = colors.lightgray },
-    c = { bg = colors.inactivegray, fg = colors.lightgray },
+    a = { bg = colors.dest, fg = colors.black, gui = 'bold' },
+    b = { bg = ctrans(colors.cyan, colors.dest, 2), fg = colors.dest_fg },
+    c = { bg = ctrans(colors.cyan, colors.dest, 3), fg = colors.dest_fg },
+    x = { bg = ctrans(colors.cyan, colors.dest, 3), fg = colors.dest_fg },
+    y = { bg = ctrans(colors.cyan, colors.dest, 4), fg = colors.dest_fg },
+    z = { bg = ctrans(colors.cyan, colors.dest, 5), fg = colors.white }
   },
+  -- inactive = {
+  --   a = { bg = colors.inactivegray, fg = colors.lightgray, gui = 'bold' },
+  --   b = { bg = colors.inactivegray, fg = colors.lightgray },
+  --   c = { bg = colors.inactivegray, fg = colors.lightgray },
+  -- },
 }
 

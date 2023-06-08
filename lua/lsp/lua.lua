@@ -2,8 +2,11 @@
 
 
 local lspconfig = require('lspconfig')
+local call_back = require('lsp.buf_keymap')
+
 
 lspconfig.lua_ls.setup({
+    on_attach = call_back,
     settings = {
         Lua = {
             runtime = {

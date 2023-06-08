@@ -8,6 +8,22 @@ local function fmt_date()
     return os.date('%Y-%m-%d %H:%M:%S');
 end
 
+
+local function lsp_status()
+    local cap = vim.lsp.buf.server_capabilities()
+    if not cap then
+        return ''
+    else 
+        local server_info = cap.serverInfo
+        if not server_info then
+            return ''
+        else
+            return server_info.name .. server_info.version
+        end
+    end
+end
+
+
 local comp_sep_none = { left = '', right = '' }
 local comp_sep_tri = { left = '', right = '' }
 local comp_sep_cir = { left = '', right = '' }
@@ -17,13 +33,15 @@ local comp_sep_cir_tri = { left = '', right = '' }
 
 
 local sect_sep_none = { left = '', right = '' }
-local sect_sep_tri = { left = '', right = '' } 
-local sect_sep_cir = { left = '', right = '' } 
+local sect_sep_tri = { left = '', right = '' }
+local sect_sep_cir = { left = '', right = '' }
 local sect_sep_sla = { left = '', right = '' }
-local sect_sep_tri_cir = { left = '', right = '' } 
-local sect_sep_cir_tri = { left = '', right = '' } 
-local sect_sep_tri_sla = { left = '', right = '' }  
-local sect_sep_sla_tri = { left = '', right = '' }  
+local sect_sep_tri_cir = { left = '', right = '' }
+local sect_sep_cir_tri = { left = '', right = '' }
+local sect_sep_tri_sla = { left = '', right = '' }
+local sect_sep_sla_tri = { left = '', right = '' }
+local sect_sep_cir_sla = { left = '', right = '' }
+local sect_sep_sla_cir = { left = '', right = '' }
 
 
 
@@ -31,16 +49,17 @@ local sect_sep_sla_tri = { left = '', right = '' }
 
 local comp_sep = comp_sep_none
 local sect_sep = sect_sep_tri_sla
-local my_theme = require("plugin_config.lualine_theme.gradient_deep")
+local my_theme = require("plugin_config.lualine_theme.gradient_echo")
 
 -- theme specification end
 
 local enable_global_status = true
 
 
+
 require("lualine").setup({
     options = {
-        icons_enabled = true, 
+        icons_enabled = true,
         theme = my_theme,
         section_separators = sect_sep,
         component_separators = comp_sep,
@@ -69,13 +88,18 @@ require("lualine").setup({
             {
                 'diagnostics',
                 sections = { 'error', 'warn', 'info', 'hint' },
-                symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
+                symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
                 always_visible = false
             }
         },
-        lualine_c = { { "require'lsp-status'.status()" }, { 'filename', colored = true, color = { fg = '#d0d0d0' } } },
-        lualine_y = { 'filesize', 'progress', 'location' },-- { 'filesize', { row_col_prog } },
+        lualine_c = {
+            { lsp_status , colored = true, color = { fg = '#304090' } },
+            { 'filename', colored = true, color = { fg = '#d1d0d0' } }
+        },
+        lualine_x = { 'encoding', 'filetype', 'fileformat' },
+        lualine_y = { 'progress', 'location' },-- { 'filesize', { row_col_prog } },
         lualine_z = { fmt_date }
     }
 })
+
 

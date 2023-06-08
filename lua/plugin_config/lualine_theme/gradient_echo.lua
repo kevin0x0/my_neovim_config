@@ -1,5 +1,5 @@
--- gradient.lua
--- seems bad
+-- gradient_echo.lua
+--
 
 
 local colors = {
@@ -13,11 +13,11 @@ local colors = {
   cyan         = '#34BFB3',
 
   gray         = '#F43E5C',
-  darkgray     = '#303030',--'#1A1C23',
+  darkgray     = '#303030', --'#1A1C23',
   lightgray    = '#6E505E',
   highlightgray= '#7C6F93',
   inactivegray = '#1C1E26',
-  dest         = '#393d38',
+  dest         = '#101015', -- '#1c1e26', --'#393d38',
   dest_fg      = '#808080'
 
 }
@@ -29,8 +29,8 @@ local function rcolor(color)
 end
 
 local function ctrans(from, to, level)
-    local smoothness = 20
-    level = level + smoothness - 5
+    local smoothness = 21
+    level = level + smoothness - 6
     local r = (smoothness - level) * tonumber(from.sub(from, 2, 3), 16) / smoothness + level * tonumber(to.sub(to, 2, 3), 16) / smoothness
     local g = (smoothness - level) * tonumber(from.sub(from, 4, 5), 16) / smoothness + level * tonumber(to.sub(to, 4, 5), 16) / smoothness
     local b = (smoothness - level) * tonumber(from.sub(from, 6, 7), 16) / smoothness + level * tonumber(to.sub(to, 6, 7), 16) / smoothness
