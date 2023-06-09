@@ -3,8 +3,8 @@
 
 
 local lspconfig = require("lspconfig")
-local call_back = require('lsp.buf_keymap')
+local lsp_buf = require('user.keymaps').lsp_buf
 
 lspconfig.clangd.setup({
-    on_attach = call_back,
+    on_attach = lsp_buf,
 })

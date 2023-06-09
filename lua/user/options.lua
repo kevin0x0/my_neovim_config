@@ -36,6 +36,8 @@ vim.opt.termguicolors = true
 -- enable cursorline highlight
 vim.opt.cursorline = true
 
+vim.diagnostic.config({ severity_sort = true })
+
 
 
 

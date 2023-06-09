@@ -10,7 +10,7 @@ require("tokyonight").setup({
         keywords = { italic = false },
         siderbars = "dark",
     },
-    
+
     siderbars = { "terminal", "help", "qf" },
     lualine_bold = false
 })

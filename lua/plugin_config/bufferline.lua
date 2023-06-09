@@ -11,6 +11,19 @@ require("bufferline").setup({
         separator_style = { '  ', '  ' }, --if this does not work, try paddef_slop
         sort_by = "relative_directory",
         diagnostics = "nvim_lsp",
+        diagnostics_indicator = function(count, level)
+            local icon
+            if level:match('error') then
+                icon = ' '
+            elseif level:match('warn') then
+                icon = ' '
+            elseif level:match('hint') then
+                icon = ' '
+            else
+                icon = ' '
+            end
+            return " " .. icon .. count
+        end,
         offsets = {
             {
                 filetype = "NvimTree",
@@ -23,10 +36,4 @@ require("bufferline").setup({
 })
 
 
--- key mapping for bufferline
-local opt = { noremap = true, silent = true }
-
-vim.keymap.set('n', '<a-]>', ':BufferLineCycleNext<CR>', opt)
-vim.keymap.set('n', '<a-[>', ':BufferLineCyclePrev<CR>', opt)
-vim.keymap.set('n', '<a-<Tab>>', ':BufferLineCycleNext<CR>', opt)
 

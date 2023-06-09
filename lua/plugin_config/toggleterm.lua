@@ -11,7 +11,7 @@ require("toggleterm").setup({
       end
     end,
 
-    open_mapping = "<a-t>",
+    open_mapping = require'user.keymaps'.toggleterm(nil),
     -- on_create = fun(t: Terminal), -- function to run when the terminal is first created
     -- on_open = fun(t: Terminal), -- function to run when the terminal opens
     -- on_close = fun(t: Terminal), -- function to run when the terminal closes

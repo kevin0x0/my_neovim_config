@@ -4,24 +4,11 @@
 vim.opt.showmode = false
 
 
-local function fmt_date()
-    return os.date('%Y-%m-%d %H:%M:%S');
+local function show_message()
+    -- return os.date('%Y-%m-%d %H:%M:%S');
+    return ''
 end
 
-
-local function lsp_status()
-    local cap = vim.lsp.buf.server_capabilities()
-    if not cap then
-        return ''
-    else 
-        local server_info = cap.serverInfo
-        if not server_info then
-            return ''
-        else
-            return server_info.name .. server_info.version
-        end
-    end
-end
 
 
 local comp_sep_none = { left = '', right = '' }
@@ -44,12 +31,11 @@ local sect_sep_cir_sla = { left = '', right = '' }
 local sect_sep_sla_cir = { left = '', right = '' }
 
 
-
 -- specify theme here
 
 local comp_sep = comp_sep_none
 local sect_sep = sect_sep_tri_sla
-local my_theme = require("plugin_config.lualine_theme.gradient_echo")
+local my_theme = require("plugin_config.lualine_theme.gradient_surround")
 
 -- theme specification end
 
@@ -69,8 +55,9 @@ require("lualine").setup({
     sections = {
         lualine_a = {
             {
-                'mode'
+                'mode',
                 -- fmt = function(str) return string.format('%-8s', str):sub(1, 8) end
+                section_separators = { left = '' }
             }
         },
         lualine_b = {
@@ -78,27 +65,30 @@ require("lualine").setup({
                 'branch',
                 colored = true,
                 icons_enabled = true,
-                icon = { '', aligh = 'left', color = { fg = 'yellow' } }
+                icon = { '', aligh = 'left', color = { fg = 'yellow' } },
+                -- component_separators = { left = '|' },
             },
             {
               'diff',
               colored = true, -- Displays a colored diff status if set to true
-              symbols = {added = ' ', modified = ' ', removed = ' '} -- Changes the symbols used by the diff.
+              symbols = {added = ' ', modified = ' ', removed = ' '}, -- Changes the symbols used by the diff.
             },
             {
                 'diagnostics',
                 sections = { 'error', 'warn', 'info', 'hint' },
                 symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
-                always_visible = false
-            }
+                always_visible = false,
+            },
         },
         lualine_c = {
-            { lsp_status , colored = true, color = { fg = '#304090' } },
-            { 'filename', colored = true, color = { fg = '#d1d0d0' } }
+            { 'filename', colored = true, color = { fg = '#d1d0d0' } },
         },
-        lualine_x = { 'encoding', 'filetype', 'fileformat' },
-        lualine_y = { 'progress', 'location' },-- { 'filesize', { row_col_prog } },
-        lualine_z = { fmt_date }
+        lualine_x = {
+            { show_message , colored = true, color = { fg = '#6090b0' } },
+        },
+        lualine_y = { 'encoding', 'filetype', 'fileformat' },
+        lualine_z = { { 'progress',section_separators = { right = '' } } , 'location' },-- { 'filesize', { row_col_prog } },
+        -- lualine_z = { fmt_date }
     }
 })
 
