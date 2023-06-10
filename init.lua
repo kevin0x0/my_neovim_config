@@ -26,8 +26,6 @@ require("plugin_config.surround")
 require("lsp.setup")
 
 -- visual configuration
-require("user.visual_design")
-
-
+require("user.visual_design").global('onedark')
 
 
