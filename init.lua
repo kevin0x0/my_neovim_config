@@ -20,6 +20,7 @@ require("plugin_config.lualine")
 require("plugin_config.telescope")
 require("plugin_config.tokyonight")
 require("plugin_config.cmp")
+require("plugin_config.surround")
 
 -- lsp
 require("lsp.setup")

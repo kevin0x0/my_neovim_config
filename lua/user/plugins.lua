@@ -22,6 +22,7 @@ return require("packer").startup(function(use)
     use { "nvim-tree/nvim-tree.lua", requires = { "nvim-tree/nvim-web-devicons" } }
     use "nvim-lua/plenary.nvim"
     use { "nvim-telescope/telescope.nvim", tag = "0.1.1", requires = { { "nvim-lua/plenary.nvim" } } }
+    use { "kylechui/nvim-surround", tag = "*" }
 
     -- lsp
     use "neovim/nvim-lspconfig"

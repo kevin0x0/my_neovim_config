@@ -11,6 +11,7 @@ local colors = {
   yellow       = '#E6E037', -- #f1fa8d
   purple       = '#c893eb',
   cyan         = '#34BFB3',
+  pink         = '#FFC874',
 
   gray         = '#F43E5C',
   darkgray     = '#303030', --'#1A1C23',
@@ -94,6 +95,14 @@ return {
     x = { bg = ctrans(colors.cyan, colors.dest, 3), fg = colors.dest_fg },
     y = { bg = ctrans(colors.cyan, colors.dest, 4), fg = colors.dest_fg },
     z = { bg = colors.cyan, fg = colors.black }
+  },
+  select = {
+    a = { bg = colors.pink, fg = colors.black, gui = 'bold' },
+    b = { bg = ctrans(colors.pink, colors.dest, 2), fg = colors.dest_fg },
+    c = { bg = ctrans(colors.pink, colors.dest, 3), fg = colors.dest_fg },
+    x = { bg = ctrans(colors.pink, colors.dest, 3), fg = colors.dest_fg },
+    y = { bg = ctrans(colors.pink, colors.dest, 4), fg = colors.dest_fg },
+    z = { bg = ctrans(colors.pink, colors.dest, 5), fg = colors.white }
   },
   inactive = {
     a = { bg = colors.dest, fg = colors.black, gui = 'bold' },
