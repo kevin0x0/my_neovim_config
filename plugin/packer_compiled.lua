@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\flamm\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\darkplus.nvim",
     url = "https://github.com/lunarvim/darkplus.nvim"
   },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "C:\\Users\\flamm\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
+  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "C:\\Users\\flamm\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lspkind-nvim",

@@ -28,4 +28,3 @@ require("lsp.setup")
 -- visual configuration
 require("user.visual_design").global('onedark')
 
-
