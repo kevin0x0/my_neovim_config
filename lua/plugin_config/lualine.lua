@@ -69,26 +69,11 @@ require("lualine").setup({
                 -- component_separators = { left = '|' },
             },
             {
-              'diff',
-              colored = true, -- Displays a colored diff status if set to true
-              symbols = {added = ' ', modified = ' ', removed = ' '}, -- Changes the symbols used by the diff.
+                'diff',
+                colored = true, -- Displays a colored diff status if set to true
+                symbols = {added = ' ', modified = ' ', removed = ' '}, -- Changes the symbols used by the diff.
+                -- diff_color = { added = { fg = '#B0D090' } },
             },
-        },
-        lualine_c = {
-            { 'filename', colored = true, color = { fg = '#d1d0d0' } },
-        },
-        -- lualine_x = {
-        --     { show_message , colored = true, color = { fg = '#6090b0' } },
-        -- },
-        lualine_x = {
-            'encoding',
-            {
-                'fileformat',
-                colored = true,
-                color = { fg = '#FFFFFF' },
-            },
-        },
-        lualine_y = {
             {
                 'diagnostics',
                 sections = { 'error', 'warn', 'info', 'hint' },
@@ -98,10 +83,31 @@ require("lualine").setup({
                 diagnostics_color = require'user.visual_design'.diagnostics_color,
                 colored = true,           -- Displays diagnostics status in color if set to true.
             },
+        },
+        lualine_c = {
+            { 'filename', colored = true, color = { fg = '#d1d0d0' } },
+        },
+        -- lualine_x = {
+        --     { show_message , colored = true, color = { fg = '#6090b0' } },
+        -- },
+        lualine_x = {
+        },
+        lualine_y = {
+             {
+                 'encoding',
+                 fmt = string.upper;
+                 colored = true,
+                 color = { fg = '#FFFFFF' },
+             },
             {
                 'filetype',
-                -- colored = true,
-                -- color = { fg = '#AAAAAA' },
+                colored = true,
+                color = { fg = '#FFFFFF' },
+            },
+            {
+                'fileformat',
+                colored = true,
+                color = { fg = '#FFFFFF' },
             },
         },
         lualine_z = { { 'progress', section_separators = { right = '' } } , 'location' },-- { 'filesize', { row_col_prog } },

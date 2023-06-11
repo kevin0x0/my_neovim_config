@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\flamm\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
   },
+  ["cmp-calc"] = {
+    loaded = true,
+    path = "C:\\Users\\flamm\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-calc",
+    url = "https://github.com/hrsh7th/cmp-calc"
+  },
   ["cmp-cmdline"] = {
     loaded = true,
     path = "C:\\Users\\flamm\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-cmdline",
@@ -93,6 +98,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\flamm\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  ["cmp-nvim-lsp-signature-help"] = {
+    loaded = true,
+    path = "C:\\Users\\flamm\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lsp-signature-help",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp-signature-help"
   },
   ["cmp-path"] = {
     loaded = true,

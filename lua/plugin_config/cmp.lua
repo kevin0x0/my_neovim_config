@@ -14,12 +14,14 @@ cmp.setup {
     -- sources
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
+        { name = 'vsnip' },
+        { name = 'nvim_lsp_signature_help' },
         { name = 'omni' },
         -- for vsnip users.
-        { name = 'vsnip' },
-    }, {
         { name = 'buffer' },
         { name = 'path' },
+        { name = 'treesitter' },
+        { name = 'calc' },
     }),
     -- window
     window = {

@@ -35,7 +35,7 @@ local options = {
     renderer = {
         root_folder_label = false,
         highlight_git = false,
-        highlight_opened_files = "none",
+        highlight_opened_files = '#FFFFFF',
 
         indent_markers = {
             enable = false,
@@ -63,11 +63,13 @@ local options = {
                     arrow_closed = "",
                 },
                 git = {
-                    unstaged = "✗",
-                    staged = "✓",
+                    -- unstaged = "✗",
+                    unstaged = "",
+                    -- staged = "✓",
+                    staged = "",
                     unmerged = "",
                     renamed = "➜",
-                    untracked = "★",
+                    untracked = "",
                     deleted = "",
                     ignored = "◌",
                 },
