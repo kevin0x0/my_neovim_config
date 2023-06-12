@@ -1,6 +1,4 @@
 -- telescope.lua
 
 
-require("telescope").setup({})
-
-
+require "telescope".setup({})

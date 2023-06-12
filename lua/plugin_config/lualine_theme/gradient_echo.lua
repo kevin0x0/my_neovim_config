@@ -3,39 +3,42 @@
 
 
 local colors = {
-  black        = '#1c1e26',
-  red          = '#E95668',
-  white        = '#B0B0B0',
-  green        = '#09F7A0',
-  blue         = '#379ae6',
-  yellow       = '#E6E037', -- #f1fa8d
-  purple       = '#c893eb',
-  cyan         = '#34BFB3',
-  pink         = '#FFC874',
+  black         = '#1c1e26',
+  red           = '#E95668',
+  white         = '#B0B0B0',
+  green         = '#09F7A0',
+  blue          = '#379ae6',
+  yellow        = '#E6E037', -- #f1fa8d
+  purple        = '#c893eb',
+  cyan          = '#34BFB3',
+  pink          = '#FFC874',
 
-  gray         = '#F43E5C',
-  darkgray     = '#303030', --'#1A1C23',
-  lightgray    = '#6E505E',
-  highlightgray= '#7C6F93',
-  inactivegray = '#1C1E26',
-  dest         = '#101015', -- '#1c1e26', --'#393d38',
-  dest_fg      = '#808080'
+  gray          = '#F43E5C',
+  darkgray      = '#303030', --'#1A1C23',
+  lightgray     = '#6E505E',
+  highlightgray = '#7C6F93',
+  inactivegray  = '#1C1E26',
+  dest          = '#101015', -- '#1c1e26', --'#393d38',
+  dest_fg       = '#808080'
 
 }
 
 local function rcolor(color)
-    local hex_num = color.sub(color, 2)
-    local rcolor_dec = 16777215 - tonumber(hex_num, 16)
-    return string.format('#%06X', rcolor_dec)
+  local hex_num = color.sub(color, 2)
+  local rcolor_dec = 16777215 - tonumber(hex_num, 16)
+  return string.format('#%06X', rcolor_dec)
 end
 
 local function ctrans(from, to, level)
-    local smoothness = 21
-    level = level + smoothness - 6
-    local r = (smoothness - level) * tonumber(from.sub(from, 2, 3), 16) / smoothness + level * tonumber(to.sub(to, 2, 3), 16) / smoothness
-    local g = (smoothness - level) * tonumber(from.sub(from, 4, 5), 16) / smoothness + level * tonumber(to.sub(to, 4, 5), 16) / smoothness
-    local b = (smoothness - level) * tonumber(from.sub(from, 6, 7), 16) / smoothness + level * tonumber(to.sub(to, 6, 7), 16) / smoothness
-    return string.format('#%02X%02X%02X', r, g, b)
+  local smoothness = 21
+  level = level + smoothness - 6
+  local r = (smoothness - level) * tonumber(from.sub(from, 2, 3), 16) / smoothness +
+  level * tonumber(to.sub(to, 2, 3), 16) / smoothness
+  local g = (smoothness - level) * tonumber(from.sub(from, 4, 5), 16) / smoothness +
+  level * tonumber(to.sub(to, 4, 5), 16) / smoothness
+  local b = (smoothness - level) * tonumber(from.sub(from, 6, 7), 16) / smoothness +
+  level * tonumber(to.sub(to, 6, 7), 16) / smoothness
+  return string.format('#%02X%02X%02X', r, g, b)
 end
 
 return {
@@ -109,4 +112,3 @@ return {
   --   c = { bg = colors.inactivegray, fg = colors.lightgray },
   -- },
 }
-

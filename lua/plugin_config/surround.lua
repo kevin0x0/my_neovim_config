@@ -1,4 +1,4 @@
 -- surround.lua
 
 
-require'nvim-surround'.setup({})
+require 'nvim-surround'.setup({})

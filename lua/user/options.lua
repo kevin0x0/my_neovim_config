@@ -12,11 +12,11 @@ vim.opt.wrap = false
 
 -- indentation
 vim.opt.expandtab = true
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
 
 vim.opt.autoindent = true
-vim.opt.shiftwidth = 4
+vim.opt.shiftwidth = 2
 
 -- show command
 vim.opt.showcmd = true
@@ -37,8 +37,3 @@ vim.opt.termguicolors = true
 vim.opt.cursorline = true
 
 vim.diagnostic.config({ severity_sort = true })
-
-
-
-
-
