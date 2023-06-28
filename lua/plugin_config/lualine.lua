@@ -57,7 +57,7 @@ require("lualine").setup({
       {
         'mode',
         -- fmt = function(str) return string.format('%-8s', str):sub(1, 8) end
-        section_separators = { left = '' }
+        section_separators = { left = '' },
       }
     },
     lualine_b = {
@@ -91,6 +91,13 @@ require("lualine").setup({
     --     { show_message , colored = true, color = { fg = '#6090b0' } },
     -- },
     lualine_x = {
+      {
+        function()
+          return vim.lsp.buf_get_clients()[1].config.name
+        end,
+        colored = true;
+        color = { fg = '#55AAEE' },
+      },
     },
     lualine_y = {
       {

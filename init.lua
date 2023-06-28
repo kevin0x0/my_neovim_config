@@ -26,4 +26,4 @@ require "plugin_config.surround"
 require "lsp.setup"
 
 -- visual configuration
-require "user.visual_design".global('onedark')
+require "user.visual_design".global('tokyonight-night')
