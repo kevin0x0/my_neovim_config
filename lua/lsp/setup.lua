@@ -11,3 +11,4 @@ lsp_default.capabilities = vim.tbl_deep_extend('force', lsp_default.capabilities
 require("lsp.lua")
 require("lsp.c_cpp")
 require("lsp.python")
+require("lsp.html")
