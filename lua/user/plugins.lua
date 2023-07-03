@@ -1,45 +1,64 @@
 -- plugins.lua
 
 
-vim.cmd [[packadd packer.nvim]]
+-- ensure lazy.nvim is installed
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-return require "packer".startup(function(use)
-  use "wbthomason/packer.nvim"
+-- plugins
+require "lazy".setup({
+  "wbthomason/packer.nvim",
 
   -- theme
-  use "folke/tokyonight.nvim"
-  use "lunarvim/darkplus.nvim"
-  use "joshdick/onedark.vim"
+  "folke/tokyonight.nvim",
+  "lunarvim/darkplus.nvim",
+  "joshdick/onedark.vim",
+  "sainnhe/everforest",
 
   -- visual
-  use "nvim-tree/nvim-web-devicons"
-  use { "nvim-lualine/lualine.nvim", requires = { "nvim-tree/nvim-web-devicons", opt = true } }
-  use { "akinsho/bufferline.nvim", tag = "v4.1.0", requires = "nvim-tree/nvim-web-devicons" }
+  "nvim-tree/nvim-web-devicons",
+  { "nvim-lualine/lualine.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
+  {
+    "akinsho/bufferline.nvim",
+    version = "v4.1.0",
+    dependencies = "nvim-tree/nvim-web-devicons"
+  },
 
   -- functional
-  use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
-  use { "akinsho/toggleterm.nvim", tag = 'v2.7.0' }
-  use { "nvim-tree/nvim-tree.lua", requires = { "nvim-tree/nvim-web-devicons" } }
-  use "nvim-lua/plenary.nvim"
-  use { "nvim-telescope/telescope.nvim", tag = "0.1.1", requires = { { "nvim-lua/plenary.nvim" } } }
-  use { "kylechui/nvim-surround", tag = "*" }
+  "nvim-treesitter/nvim-treesitter",
+  { "akinsho/toggleterm.nvim",   version = 'v2.7.0' },
+  { "nvim-tree/nvim-tree.lua",   dependencies = "nvim-tree/nvim-web-devicons" },
+  "nvim-lua/plenary.nvim",
+  { "nvim-telescope/telescope.nvim", version = "0.1.1", dependencies = "nvim-lua/plenary.nvim" },
+  { "kylechui/nvim-surround",        version = "*" },
+  "HiPhish/nvim-ts-rainbow2",
 
   -- lsp
-  use "neovim/nvim-lspconfig"
+  "neovim/nvim-lspconfig",
 
   -- coding
   -- nvim-cmp
-  use 'hrsh7th/cmp-nvim-lsp'                -- { name = nvim_lsp }
-  use 'hrsh7th/cmp-buffer'                  -- { name = 'buffer' },
-  use 'hrsh7th/cmp-path'                    -- { name = 'path' }
-  use 'hrsh7th/cmp-cmdline'                 -- { name = 'cmdline' }
-  use 'hrsh7th/cmp-vsnip'                   -- { name = 'vsnip' }
-  use 'hrsh7th/cmp-calc'                    -- { name = 'calc' }
-  use 'hrsh7th/cmp-nvim-lsp-signature-help' -- { name = 'nvim_lsp_signature_help' }
-  use 'hrsh7th/nvim-cmp'
+  "hrsh7th/cmp-nvim-lsp",                -- { name = nvim_lsp }
+  "hrsh7th/cmp-buffer",                  -- { name = 'buffer' },
+  "hrsh7th/cmp-path",                    -- { name = 'path' }
+  "hrsh7th/cmp-cmdline",                 -- { name = 'cmdline' }
+  "hrsh7th/cmp-vsnip",                   -- { name = 'vsnip' }
+  "hrsh7th/cmp-calc",                    -- { name = 'calc' }
+  "hrsh7th/cmp-nvim-lsp-signature-help", -- { name = 'nvim_lsp_signature_help' }
+  "hrsh7th/nvim-cmp",
   -- vsnip
-  use 'hrsh7th/vim-vsnip'
-  use 'rafamadriz/friendly-snippets'
+  "hrsh7th/vim-vsnip",
+  "rafamadriz/friendly-snippets",
   -- lspkind
-  use 'onsails/lspkind-nvim'
-end)
+  "onsails/lspkind-nvim",
+})

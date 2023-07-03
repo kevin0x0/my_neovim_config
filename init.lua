@@ -12,18 +12,20 @@ require "user.keymaps".global(nil)
 -- vim.api.nvim_command"PackerSync"
 
 -- plugins configuration here
-require "plugin_config.bufferline"
-require "plugin_config.nvim_tree"
-require "plugin_config.toggleterm"
-require "plugin_config.treesitter"
-require "plugin_config.lualine"
-require "plugin_config.telescope"
-require "plugin_config.tokyonight"
-require "plugin_config.cmp"
-require "plugin_config.surround"
+require "plugin-config.bufferline"
+require "plugin-config.nvim-tree"
+require "plugin-config.toggleterm"
+require "plugin-config.treesitter"
+require "plugin-config.lualine"
+require "plugin-config.telescope"
+require "plugin-config.tokyonight"
+require "plugin-config.lspkind"
+require "plugin-config.cmp"
+require "plugin-config.surround"
+require "plugin-config.rainbow"
 
 -- lsp
 require "lsp.setup"
 
 -- visual configuration
-require "user.visual_design".global('tokyonight-night')
+require "user.visual".set_theme('everforest')

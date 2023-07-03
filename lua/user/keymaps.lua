@@ -1,9 +1,6 @@
 -- keymaps.lua
 
-
 local opt = { noremap = true, silent = true }
-
-
 
 local function global_keymap(obj)
   vim.keymap.set('i', 'jk', '<Esc>', { noremap = true })
@@ -50,7 +47,7 @@ local function cmp_keymap(cmp)
     ['<a-q>'] = cmp.mapping(cmp.mapping.close(), { 'i', 'c' }),
     ['<a-c>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
     ['<a-u>'] = cmp.mapping(cmp.mapping.abort(), { 'i', 'c', 'n' }),
-    ['<Tab>'] = cmp.mapping(cmp.mapping.confirm({ select = true }), { 'i', 'c' }),     -- accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<Tab>'] = cmp.mapping(cmp.mapping.confirm({ select = true }), { 'i', 'c' }), -- accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     ['<a-s-j>'] = cmp.mapping(cmp.mapping.scroll_docs(1)),
     ['<a-s-k>'] = cmp.mapping(cmp.mapping.scroll_docs(-1)),
 
@@ -72,21 +69,17 @@ local function cmp_keymap(cmp)
   return my_keymap
 end
 
-
 local function bufferline_keymap(bufline)
   vim.keymap.set('n', '<a-]>', ':BufferLineCycleNext<CR>', opt)
   vim.keymap.set('n', '<a-[>', ':BufferLineCyclePrev<CR>', opt)
   -- vim.keymap.set('n', '<a-<Tab>>', ':BufferLineCycleNext<CR>', opt)
 end
 
-
 local function on_attach_for_nvimtree(bufnr)
   local api = require('nvim-tree.api')
-
   local function opts(desc)
     return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
-
   vim.keymap.set('n', '<C-]>', api.tree.change_root_to_node, opts('CD'))
   vim.keymap.set('n', '<C-e>', api.node.open.replace_tree_buffer, opts('Open: In Place'))
   vim.keymap.set('n', '<C-k>', api.node.show_info_popup, opts('Info'))
@@ -149,13 +142,9 @@ local function nvim_tree_keymap(nvimtree)
   return on_attach_for_nvimtree
 end
 
-
-
 local function toggleterm_keymap(toggleterm)
   return '<a-t>'
 end
-
-
 
 local function lsp_buf_keymap(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
@@ -180,14 +169,6 @@ local function lsp_buf_keymap(client, bufnr)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
-
-
-
-
-
-
-
-
 
 return {
   global = global_keymap,

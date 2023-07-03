@@ -2,7 +2,6 @@
 
 
 
-local tn_theme = "tokyonight-storm"
 require "tokyonight".setup({
   transparent = false,
   styles = {
@@ -12,5 +11,5 @@ require "tokyonight".setup({
   },
 
   siderbars = { "terminal", "help", "qf" },
-  lualine_bold = false
+  lualine_bold = true
 })

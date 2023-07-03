@@ -1,4 +1,4 @@
--- nvim_tree.lua
+-- nvim-tree.lua
 
 
 
@@ -21,6 +21,7 @@ local options = {
   view = {
     adaptive_size = false,
     side = "left",
+    -- float = { enable = true, open_win_config = { border = "shadow" } },
     width = 30,
     preserve_window_proportions = true,
   },
@@ -33,12 +34,12 @@ local options = {
     },
   },
   renderer = {
-    root_folder_label = false,
+    root_folder_label = true,
     highlight_git = false,
     highlight_opened_files = '#FFFFFF',
 
     indent_markers = {
-      enable = false,
+      enable = true,
     },
 
     icons = {

@@ -35,7 +35,7 @@ local sect_sep_sla_cir = { left = '', right = '' }
 
 local comp_sep = comp_sep_none
 local sect_sep = sect_sep_tri_sla
-local my_theme = require("plugin_config.lualine_theme.gradient_surround")
+local my_theme = require("plugin-config.lualine-theme.gradient-surround")
 
 -- theme specification end
 
@@ -80,7 +80,7 @@ require("lualine").setup({
         symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
         always_visible = false,
 
-        diagnostics_color = require 'user.visual_design'.diagnostics_color,
+        diagnostics_color = require 'user.visual'.diagnostics_color,
         colored = true,         -- Displays diagnostics status in color if set to true.
       },
     },

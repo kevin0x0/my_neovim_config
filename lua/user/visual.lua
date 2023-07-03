@@ -68,5 +68,5 @@ local diagnostics_color = {
 
 return {
   diagnostics_color = diagnostics_color,
-  global = global_visual,
+  set_theme = global_visual,
 }
