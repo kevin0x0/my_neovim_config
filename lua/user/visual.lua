@@ -50,8 +50,8 @@ local global_visual = function(theme)
   if theme then
     vim.api.nvim_command("colorscheme " .. theme)
   end
-  -- local nontext_bg = vim.fn.synIDattr(vim.fn.hiID("EndOfBuffer"), "guibg#");
-  -- vim.api.nvim_command("hi EndOfBuffer           guifg=" .. nontext_bg .. " guibg=" .. nontext_bg)
+  local nontext_bg = vim.fn.synIDattr(vim.fn.hlID("EndOfBuffer"), "bg#", "gui");
+  vim.api.nvim_command("hi EndOfBuffer           guifg=" .. nontext_bg .. " guibg=" .. nontext_bg)
 end
 
 -- color for lualine
