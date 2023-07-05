@@ -1,6 +1,5 @@
 -- colorscheme.lua
 
-
 -- background
 -- vim.o.background = dark
 
@@ -27,12 +26,9 @@ local global_visual = function(theme)
   vim.api.nvim_command("hi CursorLine             guifg=" .. cursor_fg .. " guibg=" .. cursor_bg)
   vim.api.nvim_command("hi CursorLineNr           guifg=" .. cursor_fg .. " guibg=" .. cursor_bg)
 
-  vim.api.nvim_command("hi NonText                guifg=" .. normal_bg .. " guibg=" .. normal_bg)
-
   -- floating window
   vim.api.nvim_command("hi Pmenu                  guibg=" .. normal_bg)
   vim.api.nvim_command("hi PmenuSel               guibg=" .. "gray")
-
 
   -- vim.api.nvim_command("hi DiagnosticError        guifg=" .. error_fg .. " guibg=" .. 'bg')
   -- vim.api.nvim_command("hi DiagnosticWarn         guifg=" .. warn_fg  .. " guibg=" .. 'bg')
@@ -50,13 +46,13 @@ local global_visual = function(theme)
   vim.fn.sign_define("DiagnosticSignInfo", { text = '', texthl = "DiagnosticSignInfo", icon = nil })
   vim.fn.sign_define("DiagnosticSignHint", { text = '', texthl = "DiagnosticSignHint", icon = nil })
 
-
   -- specify theme
   if theme then
     vim.api.nvim_command("colorscheme " .. theme)
   end
+  -- local nontext_bg = vim.fn.synIDattr(vim.fn.hiID("EndOfBuffer"), "guibg#");
+  -- vim.api.nvim_command("hi EndOfBuffer           guifg=" .. nontext_bg .. " guibg=" .. nontext_bg)
 end
-
 
 -- color for lualine
 local diagnostics_color = {
