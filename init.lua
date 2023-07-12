@@ -23,6 +23,7 @@ require "plugin-config.lspkind"
 require "plugin-config.cmp"
 require "plugin-config.surround"
 require "plugin-config.rainbow"
+require "plugin-config.image"
 
 -- lsp
 require "lsp.setup"

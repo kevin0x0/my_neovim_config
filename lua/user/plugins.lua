@@ -4,6 +4,7 @@
 -- ensure lazy.nvim is installed
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
+  print("Now downloading lazy.nvim...")
   vim.fn.system({
     "git",
     "clone",
@@ -12,6 +13,7 @@ if not vim.loop.fs_stat(lazypath) then
     "--branch=stable", -- latest stable release
     lazypath,
   })
+  print("Complete.")
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -26,7 +28,7 @@ require "lazy".setup({
   "sainnhe/everforest",
 
   -- visual
-  "nvim-tree/nvim-web-devicons",
+  -- "nvim-tree/nvim-web-devicons",
   { "nvim-lualine/lualine.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
   {
     "akinsho/bufferline.nvim",
@@ -38,7 +40,7 @@ require "lazy".setup({
   "nvim-treesitter/nvim-treesitter",
   { "akinsho/toggleterm.nvim",   version = 'v2.7.0' },
   { "nvim-tree/nvim-tree.lua",   dependencies = "nvim-tree/nvim-web-devicons" },
-  "nvim-lua/plenary.nvim",
+  -- "nvim-lua/plenary.nvim",
   { "nvim-telescope/telescope.nvim", version = "0.1.1", dependencies = "nvim-lua/plenary.nvim" },
   { "kylechui/nvim-surround",        version = "*" },
   "HiPhish/nvim-ts-rainbow2",
@@ -61,4 +63,5 @@ require "lazy".setup({
   "rafamadriz/friendly-snippets",
   -- lspkind
   "onsails/lspkind-nvim",
+  { "samodostal/image.nvim" , dependencies = { { "m00qek/baleia.nvim", version = 'v1.3.0' }, "nvim-lua/plenary.nvim" } },
 })

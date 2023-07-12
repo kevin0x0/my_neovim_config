@@ -14,11 +14,10 @@ cmp.setup {
   -- sources
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
+    { name = 'buffer' },
     { name = 'vsnip' },
     { name = 'nvim_lsp_signature_help' },
     { name = 'omni' },
-    -- for vsnip users.
-    { name = 'buffer' },
     { name = 'path' },
     { name = 'treesitter' },
     { name = 'calc' },
@@ -26,10 +25,10 @@ cmp.setup {
   -- window
   window = {
     completion = {
-        border = 'shadow'
+      border = 'shadow'
     },
     documentation = {
-        border = 'shadow'
+      border = 'shadow'
     },
     -- completion = cmp.config.window.bordered {
     --   winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None"
@@ -42,8 +41,8 @@ cmp.setup {
   -- format with lspkind
   formatting = {
     format = lspkind.cmp_format({
-      with_text = true,       -- do not show text alongside icons
-      maxwidth = 50,          -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+      with_text = true, -- do not show text alongside icons
+      maxwidth = 50,    -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
       before = function(entry, vim_item)
         -- show source
         vim_item.menu = '[' .. string.upper(entry.source.name) .. ']'
@@ -62,9 +61,11 @@ cmp.setup.cmdline('/', {
 
 -- use cmdline & path source for ':'.
 cmp.setup.cmdline(':', {
-  sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
-    { name = 'cmdline' }
-  })
-})
+  sources = cmp.config.sources(
+    {
+      { name = 'path' },
+      { name = 'buffer' },
+      { name = 'cmdline' }
+    })
+}
+)
