@@ -10,11 +10,6 @@ require "nvim-treesitter.configs".setup({
   highlight = { enable = true },
     incremental_selection = {
       enable = true,
-      keymaps = {
-        init_selection = "<M-s>",
-        node_incremental = "<M-j>",
-        scope_incremental = "<M-J>",
-        node_decremental = "<M-k>",
-      },
+      keymaps = require "user.keymaps".treesitter(nil),
     },
 })

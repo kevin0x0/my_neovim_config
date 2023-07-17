@@ -75,6 +75,15 @@ local function bufferline_keymap(bufline)
   -- vim.keymap.set('n', '<a-<Tab>>', ':BufferLineCycleNext<CR>', opt)
 end
 
+local function treesitter_keymap(treesitter)
+  return {
+    init_selection = "<M-s>",
+    node_incremental = "<M-j>",
+    scope_incremental = "<M-J>",
+    node_decremental = "<M-k>",
+  }
+end
+
 local function on_attach_for_nvimtree(bufnr)
   local api = require('nvim-tree.api')
   local function opts(desc)
@@ -178,4 +187,5 @@ return {
   nvim_tree = nvim_tree_keymap,
   toggleterm = toggleterm_keymap,
   lsp_buf = lsp_buf_keymap,
+  treesitter = treesitter_keymap,
 }
