@@ -13,7 +13,11 @@ if not vim.loop.fs_stat(lazypath) then
     "--branch=stable", -- latest stable release
     lazypath,
   })
-  print("Complete.")
+  if not vim.loop.fs_stat(lazypath) then
+    error("Failed to download lazy.nvim.")
+  else
+    print("Complete.")
+  end
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -40,7 +44,6 @@ require "lazy".setup({
   "nvim-treesitter/nvim-treesitter",
   { "akinsho/toggleterm.nvim",   version = 'v2.7.0' },
   { "nvim-tree/nvim-tree.lua",   dependencies = "nvim-tree/nvim-web-devicons" },
-  -- "nvim-lua/plenary.nvim",
   { "nvim-telescope/telescope.nvim", version = "0.1.1", dependencies = "nvim-lua/plenary.nvim" },
   { "kylechui/nvim-surround",        version = "*" },
   "HiPhish/nvim-ts-rainbow2",
