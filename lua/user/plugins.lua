@@ -58,7 +58,7 @@ require "lazy".setup({
   "hrsh7th/cmp-path",                    -- { name = 'path' }
   "hrsh7th/cmp-cmdline",                 -- { name = 'cmdline' }
   "hrsh7th/cmp-vsnip",                   -- { name = 'vsnip' }
-  "hrsh7th/cmp-calc",                    -- { name = 'calc' }
+  -- "hrsh7th/cmp-calc",                    -- { name = 'calc' }
   "hrsh7th/cmp-nvim-lsp-signature-help", -- { name = 'nvim_lsp_signature_help' }
   "hrsh7th/nvim-cmp",
   -- vsnip

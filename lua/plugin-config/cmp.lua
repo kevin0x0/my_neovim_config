@@ -20,7 +20,6 @@ cmp.setup {
     { name = 'omni' },
     { name = 'path' },
     { name = 'treesitter' },
-    { name = 'calc' },
   }),
   -- window
   window = {

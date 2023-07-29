@@ -3,18 +3,170 @@
 -- background
 -- vim.o.background = dark
 
-local normal_bg     = "#1B1D1E"
-local normal_fg     = "bold"
-local cursor_fg     = "bold"
-local cursor_bg     = "#303030"
+local normal_bg         = "#1B1D1E"
+local normal_fg         = "bold"
+local cursor_fg         = "bold"
+local cursor_bg         = "#303030"
 
-local error_fg      = "#e06c75"
-local warn_fg       = "#e5c07b"
-local info_fg       = "#61afef"
-local hint_fg       = "#56b6c2"
+local error_fg          = "#e06c75"
+local warn_fg           = "#e5c07b"
+local info_fg           = "#61afef"
+local hint_fg           = "#56b6c2"
+
+
+local get_colors = function (mode)
+  local colors = {}
+  if mode == 'modern' then
+    colors = {
+      lualine = {
+        diagnostics = {
+          error = { fg = error_fg },
+          warn  = { fg = warn_fg },
+          info  = { fg = info_fg },
+          hint  = { fg = hint_fg },
+        }
+      }
+    }
+  else
+    colors = {
+      lualine = {
+        diagnostics = {
+          error = { fg = error_fg },
+          warn  = { fg = warn_fg },
+          info  = { fg = info_fg },
+          hint  = { fg = hint_fg },
+        }
+      }
+    }
+  end
+  return colors;
+end
+
+
+local get_icons = function(mode)
+  local comp_sep_none = { left = '', right = '' }
+  -- local comp_sep_tri = { left = '', right = '' }
+  -- local comp_sep_cir = { left = '', right = '' }
+  -- local comp_sep_tri_cir = { left = '', right = '' }
+  -- local comp_sep_cir_tri = { left = '', right = '' }
+
+
+
+  local sect_sep_none = { left = '', right = '' }
+  -- local sect_sep_tri = { left = '', right = '' }
+  -- local sect_sep_cir = { left = '', right = '' }
+  -- local sect_sep_sla = { left = '', right = '' }
+  -- local sect_sep_tri_cir = { left = '', right = '' }
+  -- local sect_sep_cir_tri = { left = '', right = '' }
+  local sect_sep_tri_sla = { left = '', right = '' }
+  -- local sect_sep_sla_tri = { left = '', right = '' }
+  -- local sect_sep_cir_sla = { left = '', right = '' }
+  -- local sect_sep_sla_cir = { left = '', right = '' }
+  local icons = {}
+  if mode == 'modern' then
+    icons = {
+      diagnostics = { error = '', warn = '', info = '', hint = '', },
+      lualine = {
+        diagnostics = { error = ' ', warn = ' ', info = ' ', hint = ' ', } ,
+        diff = { added = ' ', modified = ' ', removed = ' ', },
+        branch = '';
+        section_separators = sect_sep_tri_sla,
+        component_separators = comp_sep_none,
+        left_separator = '',
+        right_separator = '',
+      },
+      nvim_tree = {
+        icons = {
+          -- show = {
+            --     file = true,
+            --     folder = true,
+            --     folder_arrow = true,
+            --     git = false,
+            -- },
+            glyphs = {
+              default = "󰈚",
+              symlink = "",
+              folder = {
+                default = "",
+                empty = "",
+                empty_open = "",
+                open = "",
+                symlink = "",
+                symlink_open = "",
+                arrow_open = "",
+                arrow_closed = "",
+              },
+              git = {
+                -- unstaged = "✗",
+                unstaged = "",
+                -- staged = "✓",
+                staged = "",
+                unmerged = "",
+                renamed = "➜",
+                untracked = "",
+                deleted = "",
+                ignored = "◌",
+              },
+            },
+          },
+        diagnostics = { hint = "", info = "", warning = "", error = "", },
+      },
+    }
+  else
+    icons = {
+      diagnostics = { error = 'E', warn = 'W', info = 'I', hint = 'H', },
+      lualine = {
+        diagnostics = { error = 'E ', warn = 'W ', info = 'I ', hint = 'H ', } ,
+        diff = { added = 'A ', modified = 'M ', removed = 'R ', },
+        branch = 'B';
+        section_separators = sect_sep_none,
+        component_separators = comp_sep_none,
+        left_separator = '',
+        right_separator = '',
+      },
+      nvim_tree = {
+        -- show = {
+        --     file = true,
+        --     folder = true,
+        --     folder_arrow = true,
+        --     git = false,
+        -- },
+        icons = {
+          glyphs = {
+            default = "",
+            symlink = "",
+            folder = {
+              default = "",
+              empty = "",
+              empty_open = "",
+              open = "",
+              symlink = "",
+              symlink_open = "",
+              arrow_open = "v",
+              arrow_closed = ">",
+            },
+            git = {
+              -- unstaged = "x",
+              unstaged = "X",
+              -- staged = "S",
+              staged = "S",
+              unmerged = "U",
+              renamed = "R",
+              untracked = "",
+              deleted = "D",
+              ignored = "I",
+            },
+          },
+        },
+        diagnostics = { hint = "", info = "", warning = "", error = "", },
+      }
+    }
+  end
+  return icons
+end
 
 -- global visual configuration
-local global_visual = function(theme)
+local global_visual     = function(mode)
   -- background color
   vim.api.nvim_command("hi Normal                 guibg=" .. normal_bg)
 
@@ -41,28 +193,29 @@ local global_visual = function(theme)
   vim.api.nvim_command("hi DiagnosticSignHint     guifg=" .. hint_fg .. " guibg=" .. normal_bg)
 
   -- icons for diagnostics
-  vim.fn.sign_define("DiagnosticSignError", { text = '', texthl = "DiagnosticSignError", icon = nil })
-  vim.fn.sign_define("DiagnosticSignWarn", { text = '', texthl = "DiagnosticSignWarn", icon = nil })
-  vim.fn.sign_define("DiagnosticSignInfo", { text = '', texthl = "DiagnosticSignInfo", icon = nil })
-  vim.fn.sign_define("DiagnosticSignHint", { text = '', texthl = "DiagnosticSignHint", icon = nil })
+  local diagnostics_icons = get_icons(mode).diagnostics
+  vim.fn.sign_define("DiagnosticSignError", { text = diagnostics_icons.error, texthl = "DiagnosticSignError", icon = nil })
+  vim.fn.sign_define("DiagnosticSignWarn", { text = diagnostics_icons.warn, texthl = "DiagnosticSignWarn", icon = nil })
+  vim.fn.sign_define("DiagnosticSignInfo", { text =diagnostics_icons.info, texthl = "DiagnosticSignInfo", icon = nil })
+  vim.fn.sign_define("DiagnosticSignHint", { text =diagnostics_icons.hint, texthl = "DiagnosticSignHint", icon = nil })
+end
 
+local set_theme = function(theme)
   -- specify theme
   if theme then
     vim.api.nvim_command("colorscheme " .. theme)
   end
   local nontext_bg = vim.fn.synIDattr(vim.fn.hlID("EndOfBuffer"), "bg#", "gui");
   vim.api.nvim_command("hi EndOfBuffer           guifg=" .. nontext_bg .. " guibg=" .. nontext_bg)
+  nontext_bg = vim.fn.synIDattr(vim.fn.hlID("EndOfBuffer"), "bg#", "cterm");
+  vim.api.nvim_command("hi EndOfBuffer           ctermfg=" .. nontext_bg .. " ctermbg=" .. nontext_bg)
 end
 
--- color for lualine
-local diagnostics_color = {
-  error = { fg = error_fg },
-  warn  = { fg = warn_fg },
-  info  = { fg = info_fg },
-  hint  = { fg = hint_fg },
-}
+local mode = 'modern'
 
+global_visual(mode)
 return {
-  diagnostics_color = diagnostics_color,
-  set_theme = global_visual,
+  colors = get_colors(mode),
+  icons = get_icons(mode),
+  set_theme = set_theme,
 }

@@ -50,40 +50,7 @@ local options = {
       enable = true,
     },
 
-    icons = {
-      -- show = {
-      --     file = true,
-      --     folder = true,
-      --     folder_arrow = true,
-      --     git = false,
-      -- },
-
-      glyphs = {
-        default = "󰈚",
-        symlink = "",
-        folder = {
-          default = "",
-          empty = "",
-          empty_open = "",
-          open = "",
-          symlink = "",
-          symlink_open = "",
-          arrow_open = "",
-          arrow_closed = "",
-        },
-        git = {
-          -- unstaged = "✗",
-          unstaged = "",
-          -- staged = "✓",
-          staged = "",
-          unmerged = "",
-          renamed = "➜",
-          untracked = "",
-          deleted = "",
-          ignored = "◌",
-        },
-      },
-    },
+    icons = require 'user.visual'.icons.nvim_tree.icons,
   },
   diagnostics = {
     enable = true,
@@ -94,12 +61,7 @@ local options = {
       min = vim.diagnostic.severity.HINT,
       max = vim.diagnostic.severity.ERROR,
     },
-    icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
-    },
+    icons = require 'user.visual'.icons.nvim_tree.diagnostics,
   },
   git = {
     enable = true,
@@ -110,7 +72,5 @@ local options = {
     timeout = 400,
   },
 }
-
-
 
 require("nvim-tree").setup(options)

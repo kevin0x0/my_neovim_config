@@ -3,6 +3,8 @@
 
 vim.opt.termguicolors = true
 
+local diagnostics_icons = require 'user.visual'.icons.lualine.diagnostics
+
 require("bufferline").setup({
   options = {
     mode = "buffers",
@@ -14,13 +16,13 @@ require("bufferline").setup({
     diagnostics_indicator = function(count, level)
       local icon
       if level:match('error') then
-        icon = ' '
+        icon = diagnostics_icons.error
       elseif level:match('warn') then
-        icon = ' '
+        icon = diagnostics_icons.warn
       elseif level:match('hint') then
-        icon = ' '
+        icon = diagnostics_icons.hint
       else
-        icon = ' '
+        icon = diagnostics_icons.info
       end
       return " " .. icon .. count
     end,
