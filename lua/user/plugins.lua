@@ -39,6 +39,7 @@ require "lazy".setup({
     version = "v4.1.0",
     dependencies = "nvim-tree/nvim-web-devicons"
   },
+  "HiPhish/nvim-ts-rainbow2",
 
   -- functional
   "nvim-treesitter/nvim-treesitter",
@@ -46,7 +47,7 @@ require "lazy".setup({
   { "nvim-tree/nvim-tree.lua",   dependencies = "nvim-tree/nvim-web-devicons" },
   { "nvim-telescope/telescope.nvim", version = "0.1.1", dependencies = "nvim-lua/plenary.nvim" },
   { "kylechui/nvim-surround",        version = "*" },
-  "HiPhish/nvim-ts-rainbow2",
+  -- { "samodostal/image.nvim" , dependencies = { { "m00qek/baleia.nvim", version = 'v1.3.0' }, "nvim-lua/plenary.nvim" } },
 
   -- lsp
   "neovim/nvim-lspconfig",
@@ -66,5 +67,4 @@ require "lazy".setup({
   "rafamadriz/friendly-snippets",
   -- lspkind
   "onsails/lspkind-nvim",
-  { "samodostal/image.nvim" , dependencies = { { "m00qek/baleia.nvim", version = 'v1.3.0' }, "nvim-lua/plenary.nvim" } },
 })

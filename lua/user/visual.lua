@@ -158,7 +158,7 @@ local get_icons = function(mode)
             },
           },
         },
-        diagnostics = { hint = "", info = "", warning = "", error = "", },
+        diagnostics = { hint = "H", info = "I", warning = "W", error = "E", },
       }
     }
   end
@@ -205,10 +205,14 @@ local set_theme = function(theme)
   if theme then
     vim.api.nvim_command("colorscheme " .. theme)
   end
-  local nontext_bg = vim.fn.synIDattr(vim.fn.hlID("EndOfBuffer"), "bg#", "gui");
-  vim.api.nvim_command("hi EndOfBuffer           guifg=" .. nontext_bg .. " guibg=" .. nontext_bg)
-  nontext_bg = vim.fn.synIDattr(vim.fn.hlID("EndOfBuffer"), "bg#", "cterm");
-  vim.api.nvim_command("hi EndOfBuffer           ctermfg=" .. nontext_bg .. " ctermbg=" .. nontext_bg)
+  local nontext_bg = vim.fn.synIDattr(vim.fn.hlID("Normal"), "bg#", "gui");
+  if nontext_bg ~= "" then
+    vim.api.nvim_command("hi EndOfBuffer           guifg=" .. nontext_bg .. " guibg=" .. nontext_bg)
+  end
+  nontext_bg = vim.fn.synIDattr(vim.fn.hlID("Normal"), "bg", "cterm");
+  if nontext_bg ~= "" then
+    vim.api.nvim_command("hi EndOfBuffer           ctermfg=" .. nontext_bg .. " ctermbg=" .. nontext_bg)
+  end
 end
 
 local mode = 'modern'
