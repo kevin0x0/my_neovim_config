@@ -39,7 +39,7 @@ require "lazy".setup({
     version = "v4.1.0",
     dependencies = "nvim-tree/nvim-web-devicons"
   },
-  "HiPhish/nvim-ts-rainbow2",
+  "HiPhish/rainbow-delimiters.nvim",
 
   -- functional
   "nvim-treesitter/nvim-treesitter",
@@ -68,3 +68,16 @@ require "lazy".setup({
   -- lspkind
   "onsails/lspkind-nvim",
 })
+
+-- call plugins configuration
+require "plugin-config.bufferline"
+require "plugin-config.nvim-tree"
+require "plugin-config.toggleterm"
+require "plugin-config.treesitter"
+require "plugin-config.lualine"
+require "plugin-config.telescope"
+require "plugin-config.tokyonight"
+require "plugin-config.lspkind"
+require "plugin-config.cmp"
+require "plugin-config.surround"
+require "plugin-config.rainbow-delimiters"

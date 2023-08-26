@@ -24,7 +24,7 @@ local function global_keymap(_)
   vim.keymap.set('n', '<a-S-k>', '<C-w>K', opt)
   vim.keymap.set('n', '<a-S-l>', '<C-w>L', opt)
 
-  -- fast oparation
+  -- fast operation
   vim.keymap.set('n', '<a-w>', ':w<CR>', opt)
   vim.keymap.set('n', '<a-q>', ':q<CR>', opt)
 

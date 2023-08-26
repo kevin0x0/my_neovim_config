@@ -11,19 +11,6 @@ require "user.keymaps".global(nil)
 -- ensure all the packs are installed and be upgraded
 -- vim.api.nvim_command"PackerSync"
 
--- plugins configuration here
-require "plugin-config.bufferline"
-require "plugin-config.nvim-tree"
-require "plugin-config.toggleterm"
-require "plugin-config.treesitter"
-require "plugin-config.lualine"
-require "plugin-config.telescope"
-require "plugin-config.tokyonight"
-require "plugin-config.lspkind"
-require "plugin-config.cmp"
-require "plugin-config.surround"
-require "plugin-config.rainbow"
-
 -- lsp
 require "lsp.setup"
 
