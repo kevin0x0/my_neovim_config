@@ -48,14 +48,14 @@ local function cmp_keymap(cmp)
     ['<a-c>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
     ['<a-u>'] = cmp.mapping(cmp.mapping.abort(), { 'i', 'c', 'n' }),
     ['<Tab>'] = cmp.mapping(cmp.mapping.confirm({ select = true }), { 'i', 'c' }), -- accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    ['<a-s-j>'] = cmp.mapping(cmp.mapping.scroll_docs(1)),
-    ['<a-s-k>'] = cmp.mapping(cmp.mapping.scroll_docs(-1)),
+    ['<a-s-j>'] = cmp.mapping(cmp.mapping.scroll_docs(1), { 'i', 'c' }),
+    ['<a-s-k>'] = cmp.mapping(cmp.mapping.scroll_docs(-1), { 'i', 'c' }),
 
     ['<a-l>'] = cmp.mapping(function(fallback)
       if vim.fn["vsnip#available"](1) == 1 then
         feedkey("<Plug>(vsnip-expand-or-jump)", "")
-      else
-        -- fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+      -- else
+      --   fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
       end
     end, { 'i', 's' }),
 
