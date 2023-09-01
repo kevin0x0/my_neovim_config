@@ -12,7 +12,7 @@ syntax region   kevlexComment     start="#" end="\n"
 syntax match    kevlexEnvVar      "% *\([A-Za-z_\-][A-Za-z0-9_\-]*\|\'\([^\'\\]\|\.\)\+\'\)"
 syntax region   kevlexString      start="!" end="\n\n"
 syntax region   kevlexString     start="\"" end="\n"
-syntax match    kevlexNumber      "[0-9]+"
+syntax match    kevlexNumber      "[0-9]\+"
 syntax keyword  kevlexOperator    = : ( ) 
 
 hi link kevlexEnvVar      Purple
