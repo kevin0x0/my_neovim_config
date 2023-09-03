@@ -1,5 +1,8 @@
 -- nvim-tree.lua
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 local options = {
   on_attach = require 'user.keymaps'.nvim_tree(nil),
   -- filters = {
