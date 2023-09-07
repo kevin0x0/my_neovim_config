@@ -1,3 +1,3 @@
 augroup my_filetypedetect
-  au BufRead,BufNewFile *.lx,*.klx,*.lex,*.klex,*.kevlex setlocal ft=kevlex
+  au BufRead,BufNewFile *.{k,}{ev,}l{e,}x setlocal ft=kevlex
 augroup END

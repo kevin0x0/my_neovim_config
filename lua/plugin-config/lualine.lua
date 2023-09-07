@@ -63,7 +63,11 @@ require("lualine").setup({
     lualine_x = {
       {
         function()
-          return vim.lsp.buf_get_clients()[1].config.name
+          local info = vim.lsp.buf_get_clients();
+          if (not info) or (not info[1]) then
+            return ""
+          end
+          return info[1].name
         end,
         colored = true;
         color = { fg = '#55AAEE' },
