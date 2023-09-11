@@ -16,7 +16,7 @@ local hint_fg           = "#56b6c2"
 
 local get_colors = function (mode)
   local colors = {}
-  if mode == 'modern' then
+  if mode == 'true-color' then
     colors = {
       lualine = {
         diagnostics = {
@@ -63,7 +63,7 @@ local get_icons = function(mode)
   -- local sect_sep_cir_sla = { left = '', right = '' }
   -- local sect_sep_sla_cir = { left = '', right = '' }
   local icons = {}
-  if mode == 'modern' then
+  if mode == 'true-color' then
     icons = {
       diagnostics = { error = '', warn = '', info = '', hint = '', },
       lualine = {
@@ -167,6 +167,20 @@ end
 
 -- global visual configuration
 local global_visual     = function(mode)
+  -- make sure no trailing '~'.
+  vim.api.nvim_create_autocmd("ColorScheme", {
+    pattern = "*",
+    callback = function(_)
+      local nontext_bg = vim.fn.synIDattr(vim.fn.hlID("Normal"), "bg#", "gui");
+      if nontext_bg ~= "" then
+        vim.api.nvim_command("hi EndOfBuffer           guifg=" .. nontext_bg .. " guibg=" .. nontext_bg)
+      end
+      nontext_bg = vim.fn.synIDattr(vim.fn.hlID("Normal"), "bg", "cterm");
+      if nontext_bg ~= "" then
+        vim.api.nvim_command("hi EndOfBuffer           ctermfg=" .. nontext_bg .. " ctermbg=" .. nontext_bg)
+      end
+    end
+  })
   -- background color
   vim.api.nvim_command("hi Normal                 guibg=" .. normal_bg)
 
@@ -205,17 +219,9 @@ local set_theme = function(theme)
   if theme then
     vim.api.nvim_command("colorscheme " .. theme)
   end
-  local nontext_bg = vim.fn.synIDattr(vim.fn.hlID("Normal"), "bg#", "gui");
-  if nontext_bg ~= "" then
-    vim.api.nvim_command("hi EndOfBuffer           guifg=" .. nontext_bg .. " guibg=" .. nontext_bg)
-  end
-  nontext_bg = vim.fn.synIDattr(vim.fn.hlID("Normal"), "bg", "cterm");
-  if nontext_bg ~= "" then
-    vim.api.nvim_command("hi EndOfBuffer           ctermfg=" .. nontext_bg .. " ctermbg=" .. nontext_bg)
-  end
 end
 
-local mode = 'modern'
+local mode = 'true-color'
 
 global_visual(mode)
 return {

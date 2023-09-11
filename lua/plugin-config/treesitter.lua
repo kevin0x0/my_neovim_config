@@ -2,7 +2,7 @@
 
 
 require "nvim-treesitter.configs".setup({
-  ensure_installed = { "c", "lua", "cpp", "markdown", "make", "c_sharp", "python", "verilog" },
+  ensure_installed = { "c", "lua", "cpp", "markdown", "make", "c_sharp", "python", "verilog", "cuda" },
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
   auto_install = false,
