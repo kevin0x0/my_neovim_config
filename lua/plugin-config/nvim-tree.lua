@@ -6,8 +6,8 @@ vim.g.loaded_netrwPlugin = 1
 local options = {
   on_attach = require 'user.keymaps'.nvim_tree(nil),
   -- filters = {
-  --     dotfiles = false,
-  --     exclude = { vim.fn.stdpath "config" .. "/lua/custom" },
+  --   dotfiles = false,
+  --   exclude = { vim.fn.stdpath "config" .. "/lua/custom" },
   -- },
   disable_netrw = true,
   hijack_netrw = true,
@@ -47,7 +47,7 @@ local options = {
   renderer = {
     root_folder_label = true,
     highlight_git = false,
-    highlight_opened_files = '#FFFFFF',
+    highlight_opened_files = 'name',
 
     indent_markers = {
       enable = true,
