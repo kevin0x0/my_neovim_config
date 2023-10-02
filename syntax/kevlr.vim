@@ -9,9 +9,9 @@ syntax keyword  kevlrKeyword      set decl
 syntax match    kevlrIdentifier   "[A-Za-z\u0100-\uFFFF_\-][A-Za-z0-9\u0100-\uFFFF_\-]*\|'\([^'\\]\|[\u0100-\uFFFF]\|\\.\)*'"
 syntax region   kevlrComment      start="#" end="\n"
 syntax region   kevlrString       start="`" end="`"
-syntax match    kevlrString       "\"\([^'\\]\|[\u0100-\uFFFF]\|\\.\)*\""
+syntax match    kevlrString       "\"\([^"\\]\|[\u0100-\uFFFF]\|\\.\)*\""
 syntax match    kevlrNumber       "[0-9]\+"
-syntax match    kevlrOperator     "[=:()\[\],;|<%]"
+syntax match    kevlrOperator     "[=:()\[\],;|<%]\|\.\."
 
 hi link kevlrKeyword       Keyword
 hi link kevlrIdentifier    Identifier
