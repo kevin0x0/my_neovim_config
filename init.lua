@@ -12,4 +12,4 @@ require "user.keymaps".global(nil)
 require "lsp.setup"
 
 -- visual configuration
-require "user.visual".set_theme('everforest')
+require "user.visual".set_theme("tokyonight-storm")

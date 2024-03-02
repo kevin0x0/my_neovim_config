@@ -1,39 +1,40 @@
 -- options.lua
 
+local vimopts = vim.opt
 
 -- line number
-vim.opt.number = true
-vim.opt.rnu = true
+vimopts.number = true
+vimopts.rnu = true
 
-vim.opt.wrap = false
+vimopts.wrap = false
 
 -- show matching parenthesis
--- vim.opt.showmatch = true
+-- vimopts.showmatch = true
 
 -- indentation
-vim.opt.expandtab = true
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
+vimopts.expandtab = true
+vimopts.tabstop = 2
+vimopts.softtabstop = 2
 
-vim.opt.autoindent = true
-vim.opt.shiftwidth = 2
+vimopts.autoindent = true
+vimopts.shiftwidth = 2
 
 -- show command
-vim.opt.showcmd = true
+vimopts.showcmd = true
 
 -- windows
-vim.opt.splitbelow = true
-vim.opt.splitright = true
+vimopts.splitbelow = true
+vimopts.splitright = true
 
 -- search
-vim.opt.hlsearch = false
-vim.opt.ignorecase = false
+vimopts.hlsearch = false
+vimopts.ignorecase = false
 
 
 -- enable true colors
-vim.opt.termguicolors = true
+vimopts.termguicolors = true
 
 -- enable cursorline highlight
-vim.opt.cursorline = true
+vimopts.cursorline = true
 
 vim.diagnostic.config({ severity_sort = true })

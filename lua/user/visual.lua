@@ -221,7 +221,7 @@ local set_theme = function(theme)
   end
 end
 
-local mode = 'true-color'
+local mode = vim.opt.termguicolors and 'true-color' or '_'
 
 global_visual(mode)
 return {
