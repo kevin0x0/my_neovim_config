@@ -5,7 +5,7 @@ endif
 let s:cpo_save = &cpo
 set cpo&vim
 
-syntax keyword  kevlrKeyword      set decl
+syntax keyword  kevlrKeyword      set decl import idof
 syntax match    kevlrIdentifier   "[A-Za-z\u0100-\uFFFF_\-][A-Za-z0-9\u0100-\uFFFF_\-]*\|'\([^'\\]\|[\u0100-\uFFFF]\|\\.\)*'"
 syntax region   kevlrComment      start="#" end="\n"
 syntax region   kevlrString       start="`" end="`"
