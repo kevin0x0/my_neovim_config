@@ -4,6 +4,9 @@ local opt = { noremap = true, silent = true }
 
 local function global_keymap(_)
   vim.keymap.set('i', 'jk', '<Esc>', { noremap = true })
+  vim.keymap.set('i', 'jK', '<Esc>', { noremap = true })
+  vim.keymap.set('i', 'Jk', '<Esc>', { noremap = true })
+  vim.keymap.set('i', 'JK', '<Esc>', { noremap = true })
   -- vim.keymap.set('t', '<Esc>', [[<c-\><c-n>]], { noremap = true })
 
   -- switch window
