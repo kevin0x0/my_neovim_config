@@ -15,7 +15,7 @@ local hint_fg           = "#56b6c2"
 
 
 local get_colors = function (mode)
-  local colors = {}
+  local colors = nil
   if mode == 'true-color' then
     colors = {
       lualine = {
@@ -62,7 +62,7 @@ local get_icons = function(mode)
   -- local sect_sep_sla_tri = { left = '', right = '' }
   -- local sect_sep_cir_sla = { left = '', right = '' }
   -- local sect_sep_sla_cir = { left = '', right = '' }
-  local icons = {}
+  local icons = nil
   if mode == 'true-color' then
     icons = {
       diagnostics = { error = '', warn = '', info = '', hint = '', },

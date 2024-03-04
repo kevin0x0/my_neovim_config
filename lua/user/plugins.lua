@@ -30,6 +30,7 @@ require "lazy".setup({
   "lunarvim/darkplus.nvim",
   "joshdick/onedark.vim",
   "sainnhe/everforest",
+  "morhetz/gruvbox",
 
   -- visual
   -- "nvim-tree/nvim-web-devicons",
@@ -74,9 +75,10 @@ require "plugin-config.bufferline"
 require "plugin-config.nvim-tree"
 require "plugin-config.toggleterm"
 require "plugin-config.treesitter"
-require "plugin-config.lualine"
 require "plugin-config.telescope"
 require "plugin-config.tokyonight"
+require "plugin-config.gruvbox"
+require "plugin-config.lualine"
 require "plugin-config.lspkind"
 require "plugin-config.cmp"
 require "plugin-config.surround"

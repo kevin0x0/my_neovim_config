@@ -12,4 +12,4 @@ require "user.keymaps".global(nil)
 require "lsp.setup"
 
 -- visual configuration
-require "user.visual".set_theme("tokyonight-storm")
+require "user.visual".set_theme("gruvbox")
