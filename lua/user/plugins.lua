@@ -23,8 +23,6 @@ vim.opt.rtp:prepend(lazypath)
 
 -- plugins
 require "lazy".setup({
-  "wbthomason/packer.nvim",
-
   -- theme
   "folke/tokyonight.nvim",
   "lunarvim/darkplus.nvim",
