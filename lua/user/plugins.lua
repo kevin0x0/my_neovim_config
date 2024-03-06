@@ -63,7 +63,7 @@ require "lazy".setup({
   "hrsh7th/nvim-cmp",
   -- vsnip
   "hrsh7th/vim-vsnip",
-  "rafamadriz/friendly-snippets",
+  -- "rafamadriz/friendly-snippets",
   -- lspkind
   "onsails/lspkind-nvim",
 })
@@ -81,3 +81,4 @@ require "plugin-config.lspkind"
 require "plugin-config.cmp"
 require "plugin-config.surround"
 require "plugin-config.rainbow-delimiters"
+require "plugin-config.vsnip"
