@@ -23,12 +23,12 @@ cmp.setup {
   }),
   -- window
   window = {
-    completion = {
-      border = 'shadow'
-    },
-    documentation = {
-      border = 'shadow'
-    },
+    -- completion = {
+    --   border = 'shadow'
+    -- },
+    -- documentation = {
+    --   border = 'shadow'
+    -- },
     -- completion = cmp.config.window.bordered {
     --   winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None"
     -- },

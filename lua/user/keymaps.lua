@@ -168,7 +168,8 @@ local function lsp_buf_keymap(client, bufnr)
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  vim.keymap.set('n', 'gr', function() require "telescope.builtin".lsp_references(require "telescope.themes".get_dropdown()) end, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
@@ -180,7 +181,11 @@ local function lsp_buf_keymap(client, bufnr)
   vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-  vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+end
+
+local function telescope_keymap()
+  vim.keymap.set('n', '<space>fb', function() require "telescope.builtin".current_buffer_fuzzy_find() end, opt)
+  vim.keymap.set('n', '<space>ff', function() require "telescope.builtin".find_files(require "telescope.themes".get_dropdown()) end, opt)
 end
 
 return {
@@ -191,4 +196,5 @@ return {
   toggleterm = toggleterm_keymap,
   lsp_buf = lsp_buf_keymap,
   treesitter = treesitter_keymap,
+  telescope_keymap = telescope_keymap,
 }

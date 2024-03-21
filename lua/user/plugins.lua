@@ -42,9 +42,9 @@ require "lazy".setup({
 
   -- functional
   "nvim-treesitter/nvim-treesitter",
-  { "akinsho/toggleterm.nvim",   version = 'v2.7.0' },
+  { "akinsho/toggleterm.nvim",   version = '*' },
   { "nvim-tree/nvim-tree.lua",   dependencies = "nvim-tree/nvim-web-devicons" },
-  { "nvim-telescope/telescope.nvim", version = "0.1.1", dependencies = "nvim-lua/plenary.nvim" },
+  { "nvim-telescope/telescope.nvim", version = "0.1.5", dependencies = "nvim-lua/plenary.nvim" },
   { "kylechui/nvim-surround",        version = "*" },
   -- { "samodostal/image.nvim" , dependencies = { { "m00qek/baleia.nvim", version = 'v1.3.0' }, "nvim-lua/plenary.nvim" } },
 
