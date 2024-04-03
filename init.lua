@@ -13,3 +13,6 @@ require "lsp.setup"
 
 -- visual configuration
 require "user.visual".set_theme("gruvbox")
+
+-- fix cursorline highlight
+vim.api.nvim_command("hi link Operator GruvboxFg0");
