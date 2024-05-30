@@ -12,7 +12,4 @@ require "user.keymaps".global(nil)
 require "lsp.setup"
 
 -- visual configuration
-require "user.visual".set_theme("onedark")
-
--- fix cursorline highlight
--- vim.api.nvim_command("hi link Operator GruvboxFg0");
+require "user.visual".set_theme("gruvbox")
