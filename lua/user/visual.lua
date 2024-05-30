@@ -174,8 +174,25 @@ local global_visual     = function(mode)
       if nontext_bg ~= "" then
         vim.api.nvim_command("hi EndOfBuffer           ctermfg=" .. nontext_bg .. " ctermbg=" .. nontext_bg)
       end
+      -- fix NormalFloat
+      vim.api.nvim_command("hi! link NormalFloat Pmenu");
     end
   })
+  -- fix gruvbox
+  vim.api.nvim_create_autocmd("ColorScheme", {
+    pattern = "gruvbox",
+    callback = function(_)
+      -- fix cursorline highlight
+      vim.api.nvim_command("hi! link Operator GruvboxFg0");
+      -- fix variable
+      vim.api.nvim_command("hi! link Indentifier GruvboxBlue");
+      vim.api.nvim_command("hi! link @variable Indentifier");
+      vim.api.nvim_command("hi! link @lsp.type.variable Indentifier");
+      -- fix function-like macro
+      vim.api.nvim_command("hi! link @lsp.type.macro GruvboxAqua");
+    end
+  })
+
   -- icons for diagnostics
   local diagnostics_icons = get_icons(mode).diagnostics
   vim.fn.sign_define("DiagnosticSignError", { text = diagnostics_icons.error, texthl = "DiagnosticSignError", icon = nil })
