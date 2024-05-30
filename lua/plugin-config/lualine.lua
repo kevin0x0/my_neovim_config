@@ -15,7 +15,7 @@ local enable_global_status = true
 require("lualine").setup({
   options = {
     icons_enabled = true,
-    theme = "gruvbox_dark",
+    theme = "auto",
     section_separators = { left = "", right ="" },
     component_separators = { left = "", right ="" },
     -- section_separators = require 'user.visual'.icons.lualine.section_separators,
