@@ -35,7 +35,7 @@ require "lazy".setup({
   { "nvim-lualine/lualine.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
   {
     "akinsho/bufferline.nvim",
-    version = "v4.1.0",
+    version = "v4.6.1",
     dependencies = "nvim-tree/nvim-web-devicons"
   },
   "HiPhish/rainbow-delimiters.nvim",
@@ -44,7 +44,7 @@ require "lazy".setup({
   "nvim-treesitter/nvim-treesitter",
   { "akinsho/toggleterm.nvim",   version = '*' },
   { "nvim-tree/nvim-tree.lua",   dependencies = "nvim-tree/nvim-web-devicons" },
-  { "nvim-telescope/telescope.nvim", version = "0.1.5", dependencies = "nvim-lua/plenary.nvim" },
+  { "nvim-telescope/telescope.nvim", version = "0.1.8", dependencies = "nvim-lua/plenary.nvim" },
   { "kylechui/nvim-surround",        version = "*" },
   -- { "samodostal/image.nvim" , dependencies = { { "m00qek/baleia.nvim", version = 'v1.3.0' }, "nvim-lua/plenary.nvim" } },
 
