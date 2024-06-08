@@ -175,7 +175,7 @@ local global_visual     = function(mode)
         vim.api.nvim_command("hi EndOfBuffer           ctermfg=" .. nontext_bg .. " ctermbg=" .. nontext_bg)
       end
 
-      -- fix hover markdown highlighy
+      -- fix hover markdown highlight
       vim.api.nvim_command("hi! link NormalFloat Pmenu");
     end
   })
