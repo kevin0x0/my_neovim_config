@@ -45,14 +45,14 @@ end
 
 local function cmp_keymap(cmp)
   local my_keymap = {
-    ['<a-j>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
-    ['<a-k>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
+    ['<c-n>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
+    ['<c-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
     ['<a-q>'] = cmp.mapping(cmp.mapping.close(), { 'i', 'c' }),
     ['<a-c>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
     ['<a-u>'] = cmp.mapping(cmp.mapping.abort(), { 'i', 'c', 'n' }),
     ['<Tab>'] = cmp.mapping(cmp.mapping.confirm({ select = true }), { 'i', 'c' }), -- accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    ['<a-s-j>'] = cmp.mapping(cmp.mapping.scroll_docs(1), { 'i', 'c' }),
-    ['<a-s-k>'] = cmp.mapping(cmp.mapping.scroll_docs(-1), { 'i', 'c' }),
+    ['<a-j>'] = cmp.mapping(cmp.mapping.scroll_docs(1), { 'i', 'c' }),
+    ['<a-k>'] = cmp.mapping(cmp.mapping.scroll_docs(-1), { 'i', 'c' }),
 
     ['<a-l>'] = cmp.mapping(function(fallback)
       if vim.fn["vsnip#available"](1) == 1 then
