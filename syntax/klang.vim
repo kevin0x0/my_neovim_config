@@ -11,8 +11,8 @@ syntax match    klangIdentifier   "[A-Za-z\u0100-\uFFFF_][A-Za-z0-9\u0100-\uFFFF
 syntax region   klangString       start="`" end="`"
 syntax region   klangString       start=+"+ end=+"+ skip=+\\"+
 syntax match    klangNumber       "[0-9]\+\|0[xX][0-9A-Fa-f]\+"
-syntax match    klangOperator     "[+\-*/%<>.?]\|\.\.\|<-\|==\|<=\|>=\|->\|&&\|||\|!"
 syntax match    klangDelimiter    "[{}():;,|]"
+syntax match    klangOperator     "[+\-*/%<>.?]\|\.\.\|<-\|==\|<=\|>=\|->\|&&\|||\|!\|:="
 syntax match    klangSpecial      "this\|\.\.\."
 syntax region   klangComment      start="--" end="\n"
 
@@ -21,8 +21,8 @@ hi link klangConstant      Constant
 hi link klangIdentifier    Identifier
 hi link klangString        String
 hi link klangNumber        Number    
-hi link klangOperator      Operator 
 hi link klangDelimiter     Delimiter
+hi link klangOperator      Operator 
 hi link klangSpecial       Special
 hi link klangComment       Comment 
 
