@@ -1,15 +1,12 @@
 -- init.lua
 
-
-require "user.options"
-require "user.plugins"
-require "user.keymaps".global(nil)
-
--- ensure all the packs are installed and be upgraded
--- vim.api.nvim_command"PackerSync"
+require "common.options"
+require "common.keymaps"
+require "common.commands"
+require "common.visual"
+require "common.lazy"
 
 -- lsp
-require "lsp.setup"
+require "lsp"
 
--- visual configuration
-require "user.visual".set_theme("gruvbox")
+vim.api.nvim_command("colorscheme gruvbox")

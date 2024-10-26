@@ -1,6 +1,6 @@
 local opt = { noremap = true, silent = true }
 vim.keymap.set('n', '<space>fb', function() require "telescope.builtin".current_buffer_fuzzy_find() end, opt)
-vim.keymap.set('n', '<space>ff', function() require "telescope.builtin".find_files(require "telescope.themes".get_dropdown()) end, opt)
+vim.keymap.set('n', '<space>ff', function() require "telescope.builtin".find_files() end, opt)
 
 return {
   "nvim-telescope/telescope.nvim",
