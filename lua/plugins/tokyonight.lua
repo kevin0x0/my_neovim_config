@@ -4,7 +4,7 @@ return {
   opts = {
     transparent = false,
     styles = {
-      comments = { italic = false },
+      comments = { italic = true },
       keywords = { italic = false },
       siderbars = "dark",
     },

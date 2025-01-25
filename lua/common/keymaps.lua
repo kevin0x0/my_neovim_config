@@ -29,6 +29,12 @@ vim.keymap.set('n', '<a-S-j>', '<C-w>J', opt)
 vim.keymap.set('n', '<a-S-k>', '<C-w>K', opt)
 vim.keymap.set('n', '<a-S-l>', '<C-w>L', opt)
 
+-- move cursor in insert mode
+vim.keymap.set('i', '<a-H>', '<Left>', opt)
+vim.keymap.set('i', '<a-J>', '<Down>', opt)
+vim.keymap.set('i', '<a-K>', '<Up>', opt)
+vim.keymap.set('i', '<a-L>', '<Right>', opt)
+
 -- fast operation
 vim.keymap.set('n', '<a-w>', ':w<CR>', opt)
 vim.keymap.set('n', '<a-q>', ':q<CR>', opt)
