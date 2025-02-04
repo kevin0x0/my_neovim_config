@@ -19,17 +19,6 @@ local language = {
   "klang",
 }
 
-local mylangs = {
-  klang = {
-    install_info = {
-      url = "https://github.com/kevin0x0/tree-sitter-klang",
-      files = { "src/parser.c" },
-      branch = "main",
-      requires_generate_from_grammar = false, -- if folder contains pre-generated src/parser.c
-    }
-  }
-}
-
 return {
   "nvim-treesitter/nvim-treesitter",
   opts = {
@@ -50,13 +39,5 @@ return {
     },
     indent = { enable = true },
   },
-  config = function(_, opts)
-    -- install parser for my language
-    local config = require "nvim-treesitter.parsers".get_parser_configs()
-    for lang, info in pairs(mylangs) do
-      config[lang] = info
-    end
-
-    require "nvim-treesitter.configs".setup(opts)
-  end
+  main = "nvim-treesitter.configs",
 }

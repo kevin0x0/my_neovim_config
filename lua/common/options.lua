@@ -37,6 +37,7 @@ vimopts.termguicolors = true
 -- enable cursorline highlight
 vimopts.cursorline = true
 
+-- enable stack-like jumplist
 vimopts.jumpoptions:append("stack")
 
 vim.diagnostic.config({ severity_sort = true })

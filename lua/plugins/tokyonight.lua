@@ -6,10 +6,7 @@ return {
     styles = {
       comments = { italic = true },
       keywords = { italic = false },
-      siderbars = "dark",
+      functions = { bold = true },
     },
-
-    siderbars = { "terminal", "help", "qf" },
-    lualine_bold = true
   },
 }

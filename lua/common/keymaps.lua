@@ -45,9 +45,3 @@ vim.keymap.set('n', '<a-q>', ':q<CR>', opt)
 -- key map for nvim-tree
 vim.keymap.set('n', '<a-e>', ':NvimTreeToggle<CR>', opt)
 vim.keymap.set('n', '<a-f>', ':NvimTreeFocus<CR>', opt)
-
--- lsp
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opt)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opt)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opt)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opt)

@@ -7,7 +7,6 @@ lsp_default.capabilities = vim.tbl_deep_extend('force', lsp_default.capabilities
 local function lsp_buf(_, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_set_option_value('omnifunc', 'v:lua.vim.lsp.omnifunc', { buf = bufnr })
-
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -26,16 +25,21 @@ local function lsp_buf(_, bufnr)
   vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+
+  vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, bufopts)
+  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, bufopts)
+  vim.keymap.set('n', ']d', vim.diagnostic.goto_next, bufopts)
+  vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, bufopts)
 end
 
 local lspconfig = require("lspconfig")
-local descpath = vim.fs.joinpath(vim.fn.stdpath('config'), "lua/lsp/languages") --- @diagnostic disable-line
+local specpath = vim.fs.joinpath(vim.fn.stdpath('config'), "lua/lsp/languages") --- @diagnostic disable-line
 
-for name, type in vim.fs.dir(descpath) do
+for name, type in vim.fs.dir(specpath) do
   if type == 'file' then
-    local desc = dofile(vim.fs.joinpath(descpath, name))
-    local opts = desc.opts or {}
+    local spec = dofile(vim.fs.joinpath(specpath, name))
+    local opts = spec.opts or {}
     opts.on_attach = opts.on_attach or lsp_buf
-    lspconfig[desc.server].setup(opts)
+    lspconfig[spec.server].setup(opts)
   end
 end

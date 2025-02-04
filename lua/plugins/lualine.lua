@@ -13,5 +13,13 @@ return {
       globalstatus = true,
       always_divided_middle = false
     },
+    sections = {
+      lualine_c = {
+        {
+          'filename',
+          path = 1,
+        }
+      }
+    }
   }
 }
