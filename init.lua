@@ -9,4 +9,4 @@ require "common.lazy"
 -- lsp
 require "lsp"
 
-vim.cmd.colorscheme('gruvbox')
+vim.cmd.colorscheme 'tokyonight'
