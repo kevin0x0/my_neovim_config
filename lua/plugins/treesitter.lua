@@ -14,9 +14,6 @@ local language = {
   "javascript",
   "css",
   "html",
-
-  -- my language
-  "klang",
 }
 
 return {
